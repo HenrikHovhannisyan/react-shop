@@ -48,31 +48,35 @@ const Products = () => {
         )
     };
 
+    const filterProduct = (cat) => {
+        const updateList = date.filter((x) => x.category === cat);
+        setFilter(updateList);
+    };
+
     const ShowProducts = () => {
         return (
             <>
                 <div className="buttons text-center mb-5">
-                    <button className="btn btn-outline-dark m-1">All</button>
-                    <button className="btn btn-outline-dark m-1">Men's Clothing</button>
-                    <button className="btn btn-outline-dark m-1">Women's Clothing</button>
-                    <button className="btn btn-outline-dark m-1">Jewelery</button>
-                    <button className="btn btn-outline-dark m-1">Electronic</button>
+                    <button className="btn btn-outline-dark m-1" onClick={() => setFilter(date)}>All</button>
+                    <button className="btn btn-outline-dark m-1" onClick={() => filterProduct("men's clothing")}>Men's Clothing</button>
+                    <button className="btn btn-outline-dark m-1" onClick={() => filterProduct("women's clothing")}>Women's Clothing
+                    </button>
+                    <button className="btn btn-outline-dark m-1" onClick={() => filterProduct("jewelery")}>Jewelery</button>
+                    <button className="btn btn-outline-dark m-1" onClick={() => filterProduct("electronics")}>Electronic</button>
                 </div>
                 {filter.map((product) => {
                     return (
-                        <>
-                            <div className="col-lg-3 col-sm-6 mb-4" key={product.id}>
-                                <div className="card h-100 text-center p-4">
-                                    <Image className="card-img-top product_img" src={product.image} alt={product.title}
-                                           height={250}/>
-                                    <div className="card-body">
-                                        <h5 className="card-title mb-0">{product.title.substring(0, 12)}...</h5>
-                                        <p className="card-text lead fw-bold">${product.price}</p>
-                                        <a href="#" className="btn btn-outline-dark">Buy Now</a>
-                                    </div>
+                        <div className="col-lg-3 col-sm-6 mb-4" key={product.id}>
+                            <div className="card h-100 text-center p-4">
+                                <Image className="card-img-top product_img" src={product.image} alt={product.title}
+                                       height={250}/>
+                                <div className="card-body">
+                                    <h5 className="card-title mb-0">{product.title.substring(0, 12)}...</h5>
+                                    <p className="card-text lead fw-bold">${product.price}</p>
+                                    <a href="#" className="btn btn-outline-dark">Buy Now</a>
                                 </div>
                             </div>
-                        </>
+                        </div>
                     )
                 })}
             </>
