@@ -1,4 +1,5 @@
 import React, {memo} from "react";
+import Products from "./Products";
 
 const Home = () => {
     return (
@@ -14,6 +15,8 @@ const Home = () => {
                     </div>
                 </div>
             </div>
+
+            <Products/>
         </div>
     );
 };
