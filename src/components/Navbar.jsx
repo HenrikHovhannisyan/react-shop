@@ -4,13 +4,18 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import {Link, NavLink} from "react-router-dom";
 import {useSelector} from "react-redux";
+import Image from "react-bootstrap/Image";
+import Logo from "../assets/logo.png";
 
 const NavBar = () => {
     const state = useSelector((state) => state.handleCart);
     return (
-        <Navbar expand="lg" className="bg-body-light py-3 shadow-sm">
+        <Navbar expand="lg" className="bg-body-light py-2 shadow-sm">
             <Container>
-                <NavLink to="/" className={'fw-bold fs-4 navbar-brand'}>React-Shop</NavLink>
+                <NavLink to="/" className='fw-bold fs-4 navbar-brand d-flex align-items-center'>
+                    <Image src={Logo} alt="Logo" width="30" height="30" className="d-inline-block align-top"/>
+                    React-Shop
+                </NavLink>
                 <Navbar.Toggle aria-controls="basic-navbar-nav"/>
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="mx-auto">

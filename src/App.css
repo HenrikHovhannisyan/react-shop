@@ -11,3 +11,9 @@
 .product_img {
     object-fit: contain;
 }
+
+@media screen and (max-width: 768px) {
+    .background {
+        height: 230px;
+    }
+}
