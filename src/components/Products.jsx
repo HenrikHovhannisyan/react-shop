@@ -8,6 +8,7 @@ import {Link} from "react-router-dom";
 const Products = () => {
     const [date, setDate] = useState([]);
     const [filter, setFilter] = useState(date);
+    const [activeCategory, setActiveCategory] = useState('All');
     const [isLoading, setIsLoading] = useState(false);
     const [isComponentMounted, setComponentMounted] = useState(true);
 
@@ -49,20 +50,48 @@ const Products = () => {
     };
 
     const filterProduct = (cat) => {
-        const updateList = date.filter((x) => x.category === cat);
-        setFilter(updateList);
+        setActiveCategory(cat);
+        if (cat === 'All') {
+            setFilter(date);
+        } else {
+            setFilter( date.filter((x) => x.category === cat));
+        }
     };
 
     const ShowProducts = () => {
         return (
             <>
                 <div className="buttons text-center mb-5">
-                    <button className="btn btn-outline-dark m-1" onClick={() => setFilter(date)}>All</button>
-                    <button className="btn btn-outline-dark m-1" onClick={() => filterProduct("men's clothing")}>Men's Clothing</button>
-                    <button className="btn btn-outline-dark m-1" onClick={() => filterProduct("women's clothing")}>Women's Clothing
+                    <button
+                        className={`btn btn-outline-dark m-1 ${activeCategory === 'All' ? 'active' : ''}`}
+                        onClick={() => filterProduct('All')}
+                    >
+                        All
                     </button>
-                    <button className="btn btn-outline-dark m-1" onClick={() => filterProduct("jewelery")}>Jewelery</button>
-                    <button className="btn btn-outline-dark m-1" onClick={() => filterProduct("electronics")}>Electronic</button>
+                    <button
+                        className={`btn btn-outline-dark m-1 ${activeCategory === "men's clothing" ? 'active' : ''}`}
+                        onClick={() => filterProduct("men's clothing")}
+                    >
+                        Men's Clothing
+                    </button>
+                    <button
+                        className={`btn btn-outline-dark m-1 ${activeCategory === "women's clothing" ? 'active' : ''}`}
+                        onClick={() => filterProduct("women's clothing")}
+                    >
+                        Women's Clothing
+                    </button>
+                    <button
+                        className={`btn btn-outline-dark m-1 ${activeCategory === 'jewelery' ? 'active' : ''}`}
+                        onClick={() => filterProduct('jewelery')}
+                    >
+                        Jewelery
+                    </button>
+                    <button
+                        className={`btn btn-outline-dark m-1 ${activeCategory === 'electronics' ? 'active' : ''}`}
+                        onClick={() => filterProduct('electronics')}
+                    >
+                        Electronics
+                    </button>
                 </div>
                 {filter.map((product) => {
                     return (
