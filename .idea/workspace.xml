@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="df03094d-94d8-4a38-b2d0-53c8065dcbe5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Product.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Product.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Navbar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Navbar.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/routes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -60,7 +60,7 @@
       <option name="presentableId" value="Default" />
       <updated>1696846223281</updated>
       <workItem from="1696846224514" duration="12309000" />
-      <workItem from="1696916498136" duration="12051000" />
+      <workItem from="1696916498136" duration="14535000" />
     </task>
     <servers />
   </component>
@@ -72,10 +72,10 @@
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="2472" y="178" key="#Inspections/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1696932781621" />
-    <state x="2511" y="217" width="737" height="606" key="find.popup" timestamp="1696933883843">
+    <state x="2511" y="217" width="737" height="606" key="find.popup" timestamp="1696935564800">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state x="2511" y="217" width="737" height="606" key="find.popup/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1696933883843" />
+    <state x="2511" y="217" width="737" height="606" key="find.popup/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1696935564800" />
     <state x="2543" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1696933229474">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
