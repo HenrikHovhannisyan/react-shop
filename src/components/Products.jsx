@@ -1,33 +1,33 @@
 import React, {memo, useEffect, useState} from "react";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
 import Image from "react-bootstrap/Image";
 import Skeleton from "react-loading-skeleton";
+import {Link} from "react-router-dom";
 
 const Products = () => {
     const [date, setDate] = useState([]);
     const [filter, setFilter] = useState(date);
     const [isLoading, setIsLoading] = useState(false);
-    let componentMounted = true;
+    const [isComponentMounted, setComponentMounted] = useState(true);
 
     useEffect(() => {
         const getProducts = async () => {
             setIsLoading(true);
             const response = await fetch("https://fakestoreapi.com/products");
-            if (componentMounted) {
+            if (isComponentMounted) {
                 setDate(await response.clone().json());
                 setFilter(await response.json());
                 setIsLoading(false);
             }
 
             return () => {
-                componentMounted = false;
+                setComponentMounted(false);
             }
         };
 
         getProducts();
-    }, []);
+    }, [isComponentMounted]);
 
     const Loading = () => {
         return (
@@ -73,7 +73,7 @@ const Products = () => {
                                 <div className="card-body">
                                     <h5 className="card-title mb-0">{product.title.substring(0, 12)}...</h5>
                                     <p className="card-text lead fw-bold">${product.price}</p>
-                                    <a href="#" className="btn btn-outline-dark">Buy Now</a>
+                                    <Link to={"#"} className="btn btn-outline-dark">Buy Now</Link>
                                 </div>
                             </div>
                         </div>
