@@ -4,16 +4,20 @@ import App from "../App";
 import Products from "../components/Products";
 import NavBar from "../components/Navbar";
 import Product from "../components/Product";
+import {Provider} from "react-redux";
+import store from "../redux/store";
 
 const RouteList = () => {
     return (
         <BrowserRouter>
-            <NavBar/>
-            <Routes>
-                <Route path={'/'} element={<App/>}/>
-                <Route path={'/products'} element={<Products/>}/>
-                <Route path={'/products/:id'} element={<Product/>}/>
-            </Routes>
+            <Provider store={store}>
+                <NavBar/>
+                <Routes>
+                    <Route path={'/'} element={<App/>}/>
+                    <Route path={'/products'} element={<Products/>}/>
+                    <Route path={'/products/:id'} element={<Product/>}/>
+                </Routes>
+            </Provider>
         </BrowserRouter>
     )
 };

@@ -1,4 +1,6 @@
 import React, {memo, useState, useEffect} from "react";
+import {useDispatch} from "react-redux";
+import {addCart} from "../redux/action";
 import {useParams} from "react-router";
 import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
@@ -13,6 +15,11 @@ const Product = () => {
     const {id} = useParams();
     const [product, setProduct] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
+
+    const dispatch = useDispatch();
+    const addProduct = (product) => {
+        dispatch(addCart(product));
+    };
 
     useEffect(() => {
         const getProducts = async () => {
@@ -61,7 +68,7 @@ const Product = () => {
                     </p>
                     <h3 className="display-6 fw-bolder my-4">$ {product.price}</h3>
                     <p className="lead">{product.description}</p>
-                    <Button variant="outline-dark" className="px-4 py-2">Add To Cart</Button>
+                    <Button variant="outline-dark" className="px-4 py-2" onClick={() => addProduct(product)}>Add To Cart</Button>
                     <Link to={'/cart'} className="btn btn-dark ms-2 px-3 py-2">Go To Cart</Link>
                 </Col>
             </>
